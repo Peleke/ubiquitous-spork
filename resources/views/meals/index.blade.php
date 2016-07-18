@@ -11,7 +11,7 @@
 			<li class="list-group-item">
 				<a href="/meals/{{ $meal->id }}">{{ $meal->name }}</a>	
 				<span class="pull-right">
-					{{ $meal->created_at->format('g:ia \o\n l, jS F') }}
+					{{ $meal->created_at->format('g:ia \o\n l, F jS') }}
 				</span>
 			</li>
 	@endforeach

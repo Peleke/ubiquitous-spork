@@ -28,7 +28,7 @@
         .panel-heading {
             background: #DD4814 !important;
             color: white !important;
-            
+
             /*
              * Be aware that using !important is terrible practice. It sets
              *   a selector's style and prevents overrides--period. We're 
@@ -44,6 +44,8 @@
              *   styles--directly.
              */
         }
+
+        @yield('extra-style')
     </style>
 </head>
 <body id="app-layout">

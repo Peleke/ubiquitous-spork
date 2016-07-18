@@ -1,9 +1,39 @@
 @extends('layouts.app')
 
+@section('extra-style')
+.meal-name {
+	display: inline;
+}
+
+.meal-time {
+	margin-left: 2px;
+}
+
+.meal-calories {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+@stop
+
 @section('content')
-<div class="meal-info">
-	<h2 class="meal-name">{{ $meal->name }}</h2>
-	<span class="meal-time">{{ $meal->created_at->format('l, F jS') }}</span>
+	<div class="meal-info">
+		<h2 class="meal-name">{{ $meal->name }}&nbsp;</h2>
+
+		<span class="meal-time">
+			{{ $meal->created_at->format('l, F jS') }}
+		</span>
+
+		<br>
+
+		<span class="meal-calories label label-pill label-primary">2000 kCal</span>
+
+		<span class="meal-calories label label-pill label-default">28g Protein</span>
+
+		<span class="meal-calories label label-pill label-default">49g Carbohydrates</span>
+
+		<span class="meal-calories label label-pill label-default">4g Fat</span>
+	</div>
 
 	<hr>
 
@@ -17,6 +47,7 @@
 					<span class="food-pcf pull-right">
 						{{ $food->protein}}:{{ $food->carbohydrates }}:{{ $food->fat }}
 					</span>
+					
 				</li>
 			@endforeach
 		</ul>
@@ -30,35 +61,35 @@
 
 		{{ csrf_field() }}
 
-		<div class="form-group-row">
+		<div class="form-group row">
 			<label for="name" class="col-sm-2 form-control-label">Food Name</label>
 			<div class="col-sm-10">
 				<input class="form-control" type="text" name="name" placeholder="Food Name">
 			</div>
 		</div>
 
-		<div class="form-group-row">
+		<div class="form-group row">
 			<label for="protein" class="col-sm-2 form-control-label">Protein</label>
 			<div class="col-sm-10">
 				<input class="form-control" type="number" name="protein" placeholder="Protein/g">
 			</div>
 		</div>
 
-		<div class="form-group-row">
+		<div class="form-group row">
 			<label for="carbohydrates" class="col-sm-2 form-control-label">Carbohydrates</label>
 			<div class="col-sm-10">
 				<input class="form-control" type="number" name="carbohydrates" placeholder="Carbohydrates/g">
 			</div>
 		</div>
 
-		<div class="form-group-row">
+		<div class="form-group row">
 			<label for="fat" class="col-sm-2 form-control-label">Fat</label>
 			<div class="col-sm-10">
 				<input class="form-control" class="form-control" type="number" name="fat" placeholder="Fat/g">
 			</div>
 		</div>
 
-		<div class="form-group-row">
+		<div class="form-group row">
 			<div class="col-sm-offset-2 col-sm-10">
 				<button class="btn btn-primary" value="submit" type="submit">Submit</button>
 			</div>
