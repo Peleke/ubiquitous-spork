@@ -33,28 +33,48 @@
 		<div class="form-group-row">
 			<label for="name" class="col-sm-2 form-control-label">Food Name</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" name="name" placeholder="Food Name">
+				<input class="form-control" 
+						type="text" 
+						name="name" 
+						placeholder="Food Name"
+						required
+						>
 			</div>
 		</div>
 
 		<div class="form-group-row">
 			<label for="protein" class="col-sm-2 form-control-label">Protein</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="number" name="protein" placeholder="Protein/g">
+				<input class="form-control" 
+						type="number" 
+						name="protein" 
+						placeholder="Protein/g"
+						required
+						>
 			</div>
 		</div>
 
 		<div class="form-group-row">
 			<label for="carbohydrates" class="col-sm-2 form-control-label">Carbohydrates</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="number" name="carbohydrates" placeholder="Carbohydrates/g">
+				<input class="form-control" 
+						type="number" 
+						name="carbohydrates" 
+						placeholder="Carbohydrates/g"
+						required
+						>
 			</div>
 		</div>
 
 		<div class="form-group-row">
 			<label for="fat" class="col-sm-2 form-control-label">Fat</label>
 			<div class="col-sm-10">
-				<input class="form-control" class="form-control" type="number" name="fat" placeholder="Fat/g">
+				<input class="form-control" 
+						type="number" 
+						name="fat" 
+						placeholder="Fat/g"
+						required
+						>
 			</div>
 		</div>
 

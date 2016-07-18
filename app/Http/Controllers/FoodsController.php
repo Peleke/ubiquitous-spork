@@ -40,6 +40,14 @@ class FoodsController extends Controller
      */
     public function store(Request $request, Meal $meal)
     {
+        // Make sure user provided the information we need to create a meal
+        $this->validate($request, [
+            'name' => 'required',
+            'protein' => 'required',
+            'carbohydrates' => 'required',
+            'fat' => 'required'
+        ]);
+
         $food = new Food($request->all());
         $meal->foods()->save($food);
 
