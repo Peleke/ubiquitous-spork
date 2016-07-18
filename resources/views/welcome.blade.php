@@ -9,14 +9,14 @@
                 <div class="panel-heading">Welcome, {{ $user->name }}!</div>
 
                 <div class="panel-body">
-                    @if (!$user->meals->isEmpty())
+                    @if (!$meals->isEmpty())
 
                         <p>Here's what you've eaten today.</p>
 
                         <br>
 
                         <ul class="list-group">
-                        @foreach ($user->meals as $meal)
+                        @foreach ($meals as $meal)
                             <li class="list-group-item">
                                 <a href="/meals/{{ $meal->id }}">{{ $meal->name }}</a>
                                 <span class="pull-right">
