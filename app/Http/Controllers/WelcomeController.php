@@ -12,6 +12,10 @@ class WelcomeController extends Controller
 {
 	public function index(Request $request)
 	{
+		if (!is_null($request->user()))
+			return redirect()->action('HomeController@index');
+		else
+			return view('welcome');
 		$user  = $request->user();
 		$meals = null;
 		if (!is_null($user)) {
