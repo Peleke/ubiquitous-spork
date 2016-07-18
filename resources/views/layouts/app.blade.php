@@ -13,7 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/slate/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/united/bootstrap.min.css">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
@@ -23,6 +23,26 @@
 
         .fa-btn {
             margin-right: 6px;
+        }
+
+        .panel-heading {
+            background: #DD4814 !important;
+            color: white !important;
+            
+            /*
+             * Be aware that using !important is terrible practice. It sets
+             *   a selector's style and prevents overrides--period. We're 
+             *   stuck with this background and font color unless we change
+             *   this.
+             *  
+             * I've done it here, so we can keep things simple and pull in 
+             *   Bootstrap via CDN, and not get bogged down with the details 
+             *   of building our own Sass. 
+             *   
+             *   In production, you would emphatically /not/ do this, and instead 
+             *   override styles in  the Bootstrap CSS--or your app's custom
+             *   styles--directly.
+             */
         }
     </style>
 </head>
@@ -41,7 +61,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    Meals
                 </a>
             </div>
 
@@ -50,6 +70,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
                     <li><a href="{{ url('/meals/create') }}">Add Meal</a></li>
+                    <li><a href="{{ url('/meals') }}">All Meals</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
