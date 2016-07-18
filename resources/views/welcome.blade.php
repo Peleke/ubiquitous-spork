@@ -9,7 +9,12 @@
                 <div class="panel-heading">Welcome, {{ $user->name }}!</div>
 
                 <div class="panel-body">
-                    Been eatin'? <a href="/meals/create">Keep track of that</a>.
+                    @if (!$user->meals->isEmpty())
+                        @foreach ($user->meals as $meal)
+                        @endforeach
+                    @else
+                        <p>Looks like you haven't eaten anything today. <a href="/meals/create">You should change that.</a>
+                    @endif
                 </div>
             @else
                 <div class="panel-heading">Welcome, Stranger!</div>
@@ -18,6 +23,7 @@
                 <a href="/login">Login</a> or <a href="/register">register</a> to get started!
                 </div>
             @endif
+
 
             </div>
         </div>
