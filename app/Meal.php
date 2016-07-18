@@ -25,7 +25,7 @@ class Meal extends Model
 	{
 		return $this->foods->reduce(function ($totalCalories, $food) {
 			return $totalCalories += $food->calories();
-		});
+		}, 0);
 	}
 
 	/**
