@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Food;
+
+use App\Meal;
+
 class FoodsController extends Controller
 {
     /**
@@ -34,9 +38,12 @@ class FoodsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Meal $meal)
     {
-        //
+        $food = new Food($request->all());
+        $meal->foods()->save($food);
+
+        return back();
     }
 
     /**

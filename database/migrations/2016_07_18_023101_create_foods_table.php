@@ -14,11 +14,13 @@ class CreateFoodsTable extends Migration
     {
         Schema::create('foods', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->integer('meal_id')->unsigned()->indexed();
 
+            $table->string('name');
             $table->integer('protein')->unsigned();
             $table->integer('carbohydrates')->unsigned();
             $table->integer('fat')->unsigned();
+
 
             $table->timestamps();
         });

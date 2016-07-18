@@ -8,12 +8,13 @@
 	<hr>
 
 	<h3>Foods</h3>
-	@if (!is_null($meal->foods))
+	@if (!$meal->foods->isEmpty())
 		<ul class="list-group">
-			@foreach($foods as $food)
+			@foreach($meal->foods as $food)
 				<li class="list-group-item">
 					{{ $food->name }}
-					<span class="food-pcf">P:C:F</span>
+					
+					<span class="food-pcf pull-right">{{ $food->protein}}:{{ $food->carbohydrates }}:{{ $food->fat }}</span>
 				</li>
 			@endforeach
 		</ul>
@@ -23,7 +24,7 @@
 
 	<hr>
 
-	<form action="/foods" method="post">
+	<form action="/meals/{{ $meal->id }}/foods" method="post">
 
 		{{ csrf_field() }}
 
