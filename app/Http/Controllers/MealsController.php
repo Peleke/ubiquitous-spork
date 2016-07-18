@@ -46,13 +46,18 @@ class MealsController extends Controller
      */
     public function store(Request $request, User $user)
     {
-      // Create a new Meal, taking advantage of the fact that we've sete
-      //   $name to be mass-assignable.
-      $meal = new Meal($request->all());
-      $user->meals()->save($meal);
+        // Make sure user provided the information we need to create a meal
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
 
-      // Redirect to detail page.
-      return redirect()->action('MealsController@show', $meal->id);
+        // Create a new Meal, taking advantage of the fact that we've sete
+        //   $name to be mass-assignable.
+        $meal = new Meal($request->all());
+        $user->meals()->save($meal);
+
+        // Redirect to detail page.
+        return redirect()->action('MealsController@show', $meal->id);
     }
 
     /**
