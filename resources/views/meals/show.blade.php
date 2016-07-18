@@ -14,6 +14,10 @@
 	top: 50%;
 	transform: translateY(-50%);
 }
+
+.meal-data {
+	margin: 0 0.1em 0 0.1em;
+}
 @stop
 
 @section('content')
@@ -21,18 +25,26 @@
 		<h2 class="meal-name">{{ $meal->name }}&nbsp;</h2>
 
 		<span class="meal-time">
-			{{ $meal->created_at->format('l, F jS') }}
+			{{ $meal->created_at->format('l, F jS, Y') }}
 		</span>
 
 		<br>
 
-		<span class="meal-calories label label-pill label-primary">2000 kCal</span>
+		<span class="meal-data label label-pill label-primary">
+			{{ $meal->calories() }} kCal
+		</span>
 
-		<span class="meal-calories label label-pill label-default">28g Protein</span>
+		<span class="meal-data label label-pill label-default">
+			{{ $meal->protein() }}g Protein
+		</span>
 
-		<span class="meal-calories label label-pill label-default">49g Carbohydrates</span>
+		<span class="meal-data label label-pill label-default">
+			{{ $meal->carbohydrates() }}g Carbohydrates
+		</span>
 
-		<span class="meal-calories label label-pill label-default">4g Fat</span>
+		<span class="meal-data label label-pill label-default">
+			{{ $meal->fat() }}g Fat
+		</span>
 	</div>
 
 	<hr>
