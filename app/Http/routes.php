@@ -17,6 +17,9 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+Route::post('/users/{user}/meals', 'MealsController@store');
+
 Route::resource('/meals', 'MealsController');
 
 Route::post('/meals/{meal}/foods', 'FoodsController@store');
+

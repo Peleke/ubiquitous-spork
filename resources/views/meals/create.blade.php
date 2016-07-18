@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="/meals" method="POST">
+<form action="/users/{{ $user->id}}/meals" method="POST">
 	
 	{{ csrf_field() }}
 

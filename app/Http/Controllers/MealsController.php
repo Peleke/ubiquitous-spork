@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+
 use App\Meal;
+
+use App\User;
 
 class MealsController extends Controller
 {
@@ -24,9 +27,9 @@ class MealsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('meals.create');
+        return view('meals.create')->withUser($request->user());
     }
 
     /**
@@ -35,12 +38,12 @@ class MealsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
       // Create a new Meal, taking advantage of the fact that we've sete
       //   $name to be mass-assignable.
       $meal = new Meal($request->all());
-      $meal->save();
+      $user->meals()->save($meal);
 
       // Redirect to detail page.
       return redirect()->action('MealsController@show', $meal->id);
