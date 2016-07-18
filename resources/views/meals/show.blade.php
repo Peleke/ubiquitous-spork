@@ -14,12 +14,14 @@
 				<li class="list-group-item">
 					{{ $food->name }}
 					
-					<span class="food-pcf pull-right">{{ $food->protein}}:{{ $food->carbohydrates }}:{{ $food->fat }}</span>
+					<span class="food-pcf pull-right">
+						{{ $food->protein}}:{{ $food->carbohydrates }}:{{ $food->fat }}
+					</span>
 				</li>
 			@endforeach
 		</ul>
 	@else
-		<p>No Foods associated with this meal. Scroll down to add some.</p>
+		<p>No Foods associated with this meal. Add some below.</p>
 	@endif
 
 	<hr>

@@ -10,8 +10,25 @@
 
                 <div class="panel-body">
                     @if (!$user->meals->isEmpty())
+
+                        <p>Here's what you've eaten today.</p>
+
+                        <br>
+
+                        <ul class="list-group">
                         @foreach ($user->meals as $meal)
+                            <li class="list-group-item">
+                                <a href="/meals/{{ $meal->id }}">{{ $meal->name }}</a>
+                                <span class="pull-right">
+                                    {{ $meal->created_at->format('g:i A')}}
+                                </span>
+                            </li>
                         @endforeach
+                        </ul>
+
+                        <br>
+
+                        <p>Why not <a href="/meals/create">keep track of your next meal</a>, too?</p>
                     @else
                         <p>Looks like you haven't eaten anything today. <a href="/meals/create">You should change that.</a>
                     @endif
